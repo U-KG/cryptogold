@@ -1,0 +1,331 @@
+include blocks/variables
+doctype html
+html(lang=$i18n.lang)
+  head
+    meta(charset="utf-8")
+    title BOT
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name='format-detection' content='telephone=no')
+    //color
+    meta(name="theme-color" content="#000")
+    //favicons
+    link(rel='apple-touch-icon' sizes='180x180' href='./img/favicons/apple-touch-icon.png')
+    link(rel='icon' type='image/png' sizes='32x32' href='./img/favicons/favicon-32x32.png')
+    link(rel='icon' type='image/png' sizes='16x16' href='./img/favicons/favicon-16x16.png')
+    //open graph
+    meta(property='og:title' content='')
+    meta(property='og:site_name' content='')
+    meta(property='og:url' content='') 
+    meta(property='og:description' content='')
+    meta(property='og:image' content='')
+    //fonts
+    link(rel="stylesheet" href="./fonts/Futura/stylesheet.css")
+    //styles
+    link(rel="stylesheet" href="./styles/common.css")
+
+  body(style='overflow:hidden;opacity:0;visibility:hidden;')
+    .wrapper
+      main.main
+        .sky(style='background-image:url("./img/sky.svg")')
+          .image.image_cover
+            img(src="./img/sky.svg", alt="img").lazyload
+        //1
+        section.section.screen.screen-1
+          .screen-1__scene 
+            .image.image_cover 
+              img(src="./img/screen1.png", alt="image").lazyload
+
+          .container.screen__container
+            .monet-image.screen-1__monet
+              .screen-1__monet-inner
+                .image.image_contain
+                  img(data-src="./img/monet2.png", alt="monet").lazyload
+            .screen-1__content 
+              .screen-1__text-content
+                h1.screen-1__title !{$i18n.screen_1.title} 
+                p.screen-1__text !{$i18n.screen_1.text}
+              .screen-1__button
+                a(href="javascript:void(0);").button 
+                  span.button__shadow
+                  span.button__text !{$i18n.button.title_1} 
+            .documents.screen-1__documents
+              .documents__element
+                .image.image_contain
+                  img(data-src="./img/documents/1.png", alt="document").lazyload
+              .documents__element
+                .image.image_contain
+                  img(data-src="./img/documents/2.png", alt="document").lazyload
+              .documents__element
+                .image.image_contain
+                  img(data-src="./img/documents/3.png", alt="document").lazyload
+              .documents__element
+                .image.image_contain
+                  img(data-src="./img/documents/4.png", alt="document").lazyload
+              .documents__element
+                .image.image_contain
+                  img(data-src="./img/documents/5.png", alt="document").lazyload
+              .documents__element
+                .image.image_contain
+                  img(data-src="./img/documents/6.png", alt="document").lazyload
+            
+        //2
+        section.section.screen.screen-2 
+          .container.screen__container.screen-2__container
+
+            .screen-2__visual
+              img(data-src="./img/dollar.png", alt="monet").lazyload.screen-2__dollar
+              img(data-src="./img/refresh.png", alt="monet").lazyload.screen-2__refresh
+              .monet-image.screen-2__monet
+                .image.image_contain
+                  img(data-src="./img/monet2.png", alt="monet").lazyload
+              svg.icon.screen-2__arrow.screen-2__arrow_1
+                use(xlink:href='./img/icons/icons-sprite.svg#arrow')
+              .image.screen-2__bot
+                img(data-src="./img/bot.png", alt="monet").lazyload
+              svg.icon.screen-2__arrow.screen-2__arrow_2 
+                use(xlink:href='./img/icons/icons-sprite.svg#arrow')
+              .image.screen-2__money
+                img(data-src="./img/money1.png", alt="monet").lazyload
+              svg.icon.screen-2__arrow.screen-2__arrow_3
+                use(xlink:href='./img/icons/icons-sprite.svg#arrow')
+            
+            .documents.screen-2__documents
+              .documents__element
+                .image.image_contain
+                  img(data-src="./img/documents/1.png", alt="document").lazyload
+              .documents__element
+                .image.image_contain
+                  img(data-src="./img/documents/2.png", alt="document").lazyload
+              .documents__element
+                .image.image_contain
+                  img(data-src="./img/documents/3.png", alt="document").lazyload
+              .documents__element
+                .image.image_contain
+                  img(data-src="./img/documents/4.png", alt="document").lazyload
+              .documents__element
+                .image.image_contain
+                  img(data-src="./img/documents/5.png", alt="document").lazyload
+              .documents__element
+                .image.image_contain
+                  img(data-src="./img/documents/6.png", alt="document").lazyload
+            
+            .screen-2__text-box.screen-2__text-box_1   
+              p !{$i18n.screen_2.text_1} 
+            .screen-2__text-box.screen-2__text-box_2 
+              p !{$i18n.screen_2.text_2} 
+            .screen-2__text-box.screen-2__text-box_4
+              p !{$i18n.screen_2.text_4}
+            .screen-2__text-box.screen-2__text-box_3
+              p !{$i18n.screen_2.text_3}
+              .screen-2__button
+                a(href="javascript:void(0);").button 
+                  span.button__shadow
+                  span.button__text !{$i18n.button.title_1}
+
+        //3
+        section.section.screen.screen-3
+          .screen-3__background 
+            .image
+              img(data-src="./img/chart.png", alt="image").lazyload
+          .monet-image.screen-3__monet
+            .image.image_contain
+              img(data-src="./img/monet2.png", alt="monet").lazyload
+          .container.screen__container.screen-3__container  
+            .screen-3__content
+              h2.screen-3__title !{$i18n.screen_3.title}
+              p.screen-3__text-1 !{$i18n.screen_3.text_1}
+              p.screen-3__text-2 !{$i18n.screen_3.text_2}
+              p.screen-3__text-3 !{$i18n.screen_3.text_3}
+              .screen-3__video-content
+                p.screen-3__text-4 !{$i18n.screen_3.text_4}
+                a(href="javascript:void(0);").video-element.screen-3__video
+                  .image.image_cover
+                    img(src="../img/video.jpg", alt="image").lazyload
+                  svg.icon
+                    use(xlink:href='./img/icons/icons-sprite.svg#play')
+
+              .documents.screen-3__documents
+                .documents__element
+                  .image.image_contain
+                    img(data-src="./img/documents/1.png", alt="document").lazyload
+                .documents__element
+                  .image.image_contain
+                    img(data-src="./img/documents/2.png", alt="document").lazyload
+                .documents__element
+                  .image.image_contain
+                    img(data-src="./img/documents/3.png", alt="document").lazyload
+                .documents__element
+                  .image.image_contain
+                    img(data-src="./img/documents/4.png", alt="document").lazyload
+                .documents__element
+                  .image.image_contain
+                    img(data-src="./img/documents/5.png", alt="document").lazyload
+                .documents__element
+                  .image.image_contain
+                    img(data-src="./img/documents/6.png", alt="document").lazyload
+
+              .screen-3__button 
+                .image.image_contain.screen-3__gold 
+                  img(data-src="./img/gold.png", alt="image").lazyload
+                a(href="javascript:void(0);").button 
+                  span.button__shadow
+                  span.button__text !{$i18n.button.title_2} 
+
+        //4
+        section.section.screen.screen-4
+          .container.screen__container.screen-4__container
+            h2.screen-4__title !{$i18n.screen_4.title}
+            .screen-4__monet-elements
+              svg.icon.screen-4__arrow
+                use(xlink:href='./img/icons/icons-sprite.svg#arrow')
+              .monet-image.screen-4__monet
+                .image.image_contain
+                  img(data-src="./img/monet2.png", alt="monet").lazyload
+            .screen-4__content
+              .screen-4__left-content 
+                h5.screen-4__text-1 !{$i18n.screen_4.text_1}
+                .image.image_contain.screen-4__chart
+                  img(data-src="./img/Rectangle 36.jpg", alt="image").lazyload
+              
+              .screen-4__right-content 
+                h5.screen-4__text-2 !{$i18n.screen_4.text_2}
+                .screen-4__right-content-bottom
+                  ul.check-list.screen-4__list
+                    li.check-list__item 
+                      svg.icon
+                        use(xlink:href='./img/icons/icons-sprite.svg#check')
+                      | !{$i18n.screen_4.text_3}
+                    li.check-list__item   
+                      svg.icon
+                        use(xlink:href='./img/icons/icons-sprite.svg#check')
+                      | !{$i18n.screen_4.text_4}
+                    li.check-list__item   
+                      svg.icon
+                        use(xlink:href='./img/icons/icons-sprite.svg#check')
+                      | !{$i18n.screen_4.text_5}
+
+                  .screen-4__button
+                    a(href="javascript:void(0);").button 
+                      span.button__shadow
+                      span.button__text !{$i18n.button.title_3} 
+
+        //5
+        section.section.screen.screen-5
+          .container.screen__container.screen-5__container 
+            h2.screen-5__title !{$i18n.screen_5.title}
+            .screen-5__content 
+              .screen-5__box.screen-5__box_1
+                .image.image_contain 
+                  img(data-src="./img/money2.png", alt="money").lazyload
+                svg.icon
+                  use(xlink:href='./img/icons/icons-sprite.svg#arrow-short')
+              
+              .screen-5__box.screen-5__box_2
+                p.screen-5__box-title !{$i18n.screen_5.text_1}
+                .monet-image.screen-5__monet
+                  .image.image_contain
+                    img(data-src="./img/monet2.png", alt="monet").lazyload
+                svg.icon
+                  use(xlink:href='./img/icons/icons-sprite.svg#arrow-short')
+
+              .screen-5__box.screen-5__box_3
+                img(data-src="./img/curve-arrow.png", alt="arrow").lazyload.screen-5__arrow
+                .image.image_contain 
+                  img(data-src="./img/bot.png", alt="money").lazyload
+                p.screen-5__box-title !{$i18n.screen_5.text_2}
+                svg.icon
+                  use(xlink:href='./img/icons/icons-sprite.svg#arrow-short')
+
+              .screen-5__box.screen-5__box_4
+                ul.screen-5__list.screen-5__list_1
+                  li 4,65 CG
+                  li 46,5 CG
+                  li 465 CG
+                p.screen-5__box-title !{$i18n.screen_5.text_3}
+                svg.icon
+                  use(xlink:href='./img/icons/icons-sprite.svg#arrow-short')
+
+              .screen-5__box.screen-5__box_5
+                p.screen-5__box-title !{$i18n.screen_5.text_4}
+                svg.icon
+                  use(xlink:href='./img/icons/icons-sprite.svg#arrow-short')
+                .image.image_contain 
+                  img(data-src="./img/chartx10.png", alt="money").lazyload
+
+              .screen-5__box.screen-5__box_6
+                p.screen-5__box-title !{$i18n.screen_5.text_5}
+                .image.image_contain 
+                  img(data-src="./img/money3.png", alt="money").lazyload
+                ul.screen-5__list.screen-5__list_2
+                  li 46,5 $
+                  li 465 $
+                  li 4650 $
+
+              .screen-5__button
+                a(href="javascript:void(0);").button 
+                  span.button__shadow
+                  span.button__text !{$i18n.button.title_4} 
+
+        //6
+        section.section.screen.screen-6
+          .container.screen__container.screen-6__container 
+            h2.screen-6__title !{$i18n.screen_6.title}
+            .screen-6__content 
+              .screen-6__pyramid 
+                .screen-6__pyramid-arrow.screen-6__pyramid-arrow_left 
+                  span !{$i18n.screen_6.text_7}
+                  svg.icon(viewBox="0 0 199.7 40.3")
+                    use(xlink:href='./img/icons/icons-sprite.svg#arrow')
+                  
+                .screen-6__pyramid-arrow.screen-6__pyramid-arrow_right
+                  span !{$i18n.screen_6.text_8}
+                  svg.icon(viewBox="0 0 199.7 40.3")
+                    use(xlink:href='./img/icons/icons-sprite.svg#arrow')
+                  
+                .image.image_contain.screen-6__pyramid-element
+                  img(data-src="./img/pyramid.svg", alt="image").lazyload
+
+                .screen-6__pyramid-loop
+                  span !{$i18n.screen_6.text_9}
+                  .image.image_contain
+                    img(data-src="./img/loop.svg", alt="image").lazyload
+
+              .screen-6__text-content   
+                .screen-6__top 
+                  .image.image_contain 
+                    img(data-src="./img/money2.png", alt="money").lazyload
+                  .screen-6__top-items 
+                    .screen-6__top-item 
+                      | !{$i18n.screen_6.text_1}
+                      span 50 %
+                    .screen-6__top-item   
+                      | !{$i18n.screen_6.text_2}
+                      span !{$i18n.screen_6.text_3}
+
+                ul.check-list.screen-6__list
+                  li.check-list__item 
+                    svg.icon
+                      use(xlink:href='./img/icons/icons-sprite.svg#check')
+                    | !{$i18n.screen_6.text_4}
+                  li.check-list__item 
+                    svg.icon
+                      use(xlink:href='./img/icons/icons-sprite.svg#check')
+                    | !{$i18n.screen_6.text_5}
+                  li.check-list__item 
+                    svg.icon
+                      use(xlink:href='./img/icons/icons-sprite.svg#check')
+                    | !{$i18n.screen_6.text_6}
+
+
+              
+
+        //7
+        section.section.screen.screen-7
+          .container.screen__container.screen-7__container 
+            h2 last
+
+    //webpack
+    script(src="./scripts/app.js")
+
+    //preview only
+    include blocks/helper

@@ -1,0 +1,87 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 32px;
+  height: 64px;
+  padding: 0 65px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0px 4px 44px #3600C4;
+  transition: transform .2s, box-shadow $trs1;
+  will-change: transform;
+  min-width: 200px;
+  &::before, &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+  &::before {
+    background: linear-gradient(90deg, #00B0B2 0%, #3600AA 50%, #4C0067 100%);
+  }
+  &::after {
+    transition: opacity $trs2;
+    background: linear-gradient(90deg, #4C0067 0%, #3600AA 50%, #00B0B2 100%);
+    opacity: 0;
+  }
+  &__shadow {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 5px;
+    border-radius: inherit;
+    transition: transform .2s;
+    &::before, &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &::before {
+      background: linear-gradient(90deg, #005657 0%, #100032 50%, #17001F 100%);
+    }
+    &::after {
+      transition: opacity $trs2;
+      background: linear-gradient(90deg, #17001F 0%, #100032 50%, #005657 100%);
+      opacity: 0;
+    }
+  }
+  &__text {
+    position: relative;
+    z-index: 3;
+  }
+  &[data-touch], &[data-hover] {
+    &::after {
+      opacity: 1;
+    }
+    .button__shadow {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+  &[data-click], &[data-touch] {
+    .button__shadow {
+      transform: translateY(-5px);
+    }
+    transform: translateY(5px) scale(0.99);
+  }
+  @include media-breakpoint-down(xl) {
+    height: 58px;
+    padding: 0 40px;
+  }
+}

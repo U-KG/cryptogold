@@ -1,0 +1,52 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.main {
+  flex: 1 1 100%;
+  position: relative;
+}
+.section {
+  position: relative;
+}
+
+.screen {
+  @include media-breakpoint-up(xl) {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  @include media-breakpoint-down(xl) {
+    margin-bottom: 150px;
+  }
+  @include media-breakpoint-down(md) {
+    margin-bottom: 120px;
+  }
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 100px;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin: 0 auto;
+  @include media-breakpoint-up(sm) {
+    max-width: map-get($container-max-widths, sm);
+  }
+  @include media-breakpoint-up(md) {
+    max-width: map-get($container-max-widths, md);
+  }
+  @include media-breakpoint-up(lg) {
+    max-width: map-get($container-max-widths, lg);
+  }
+  @include media-breakpoint-up(xl) {
+    max-width: map-get($container-max-widths, xl);
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 0 16px;
+  }
+}
