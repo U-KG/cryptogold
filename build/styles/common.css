@@ -1046,8 +1046,8 @@ table:not([class]) {
   .screen-2__text-box_1 {
     text-align: right;
     width: 295px;
-    left: 105px;
-    bottom: calc(50% + 45px); }
+    left: 80px;
+    bottom: calc(50% + 65px); }
   .screen-2__text-box_2 {
     width: 500px;
     left: 730px;
@@ -1058,9 +1058,9 @@ table:not([class]) {
     left: 0;
     text-align: right; }
   .screen-2__text-box_4 {
-    width: 280px;
-    right: -20px;
-    top: calc(50% + 86px); }
+    width: 340px;
+    right: -80px;
+    top: calc(50% + 106px); }
 
 @media (max-width: 1599.98px) {
   .screen-2__visual {
@@ -1078,7 +1078,7 @@ table:not([class]) {
     top: calc(50% + 75px); }
   .screen-2__text-box_4 {
     width: 300px;
-    top: calc(50% + 65px);
+    top: calc(50% + 80px);
     right: 0; } }
 
 @media (min-width: 1024px) and (max-width: 1279.98px) {
@@ -1132,10 +1132,10 @@ table:not([class]) {
     top: initial;
     width: 100%;
     text-align: left; }
-    .screen-2__text-box br {
-      display: none; }
     .screen-2__text-box:not(:last-child) {
       margin-bottom: 20px; }
+    .screen-2__text-box_1 br {
+      display: none; }
   .screen-2__documents {
     --element-width: 90px;
     width: 200px;
