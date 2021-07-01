@@ -4,7 +4,8 @@
     "title_1": "Turn on the bot",
     "title_2": "Join",
     "title_3": "Buy token",
-    "title_4": "Start earning income"
+    "title_4": "Start earning income",
+    "title_5": "Start now"
   },
   "screen_1": {
     "title": "Get passive income +365% per annum",
@@ -50,5 +51,17 @@
     "text_7": "spillover от еру left",
     "text_8": "spillover on the right",
     "text_9": "spillovers grow ENDLESSLY"
+  },
+  "screen_7": {
+    "text_1": "Every minute",
+    "text_2": "Someone gets credits in the bot",
+    "text_3": "Every minute",
+    "text_4": "The token rises in price on the exchange",
+    "text_5": "The amount of tokens",
+    "text_6": "decreases",
+    "text_7": "Token value",
+    "text_8": "increases",
+    "text_9": "Do not miss",
+    "text_10": "Maybe this is the chance you've always been waiting for"
   }
 }

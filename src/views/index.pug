@@ -71,7 +71,11 @@ html(lang=$i18n.lang)
         //2
         section.section.screen.screen-2 
           .container.screen__container.screen-2__container
-
+            .screen-2__text-box.screen-2__text-box_1   
+              p !{$i18n.screen_2.text_1} 
+            .screen-2__text-box.screen-2__text-box_2 
+              p !{$i18n.screen_2.text_2} 
+              
             .screen-2__visual
               img(data-src="./img/dollar.png", alt="monet").lazyload.screen-2__dollar
               img(data-src="./img/refresh.png", alt="monet").lazyload.screen-2__refresh
@@ -109,10 +113,7 @@ html(lang=$i18n.lang)
                 .image.image_contain
                   img(data-src="./img/documents/6.png", alt="document").lazyload
             
-            .screen-2__text-box.screen-2__text-box_1   
-              p !{$i18n.screen_2.text_1} 
-            .screen-2__text-box.screen-2__text-box_2 
-              p !{$i18n.screen_2.text_2} 
+            
             .screen-2__text-box.screen-2__text-box_4
               p !{$i18n.screen_2.text_4}
             .screen-2__text-box.screen-2__text-box_3
@@ -134,6 +135,9 @@ html(lang=$i18n.lang)
             .screen-3__content
               h2.screen-3__title !{$i18n.screen_3.title}
               p.screen-3__text-1 !{$i18n.screen_3.text_1}
+              .image.image_contain.screen-3__gold.screen-3__gold_mobile 
+                img(data-src="./img/gold.png", alt="image").lazyload
+
               p.screen-3__text-2 !{$i18n.screen_3.text_2}
               p.screen-3__text-3 !{$i18n.screen_3.text_3}
               .screen-3__video-content
@@ -165,7 +169,7 @@ html(lang=$i18n.lang)
                     img(data-src="./img/documents/6.png", alt="document").lazyload
 
               .screen-3__button 
-                .image.image_contain.screen-3__gold 
+                .image.image_contain.screen-3__gold.screen-3__gold_desktop 
                   img(data-src="./img/gold.png", alt="image").lazyload
                 a(href="javascript:void(0);").button 
                   span.button__shadow
@@ -316,13 +320,64 @@ html(lang=$i18n.lang)
                       use(xlink:href='./img/icons/icons-sprite.svg#check')
                     | !{$i18n.screen_6.text_6}
 
-
-              
-
         //7
         section.section.screen.screen-7
+          .screen-7__background
+            .image 
+              img(data-src="./img/lastbg.png", alt="bg").lazyload
+
           .container.screen__container.screen-7__container 
-            h2 last
+            .screen-7__top 
+              .screen-7__items 
+
+                .screen-7__item 
+                  svg.icon
+                    use(xlink:href='./img/icons/icons-sprite.svg#arrow-short')
+                  .screen-7__item-text 
+                    h5.screen-7__item-title !{$i18n.screen_7.text_1} 
+                    p.screen-7__item-text !{$i18n.screen_7.text_2}
+                  .screen-7__item-else 
+                    span +
+                    .monet-image.screen-7__item-monet
+                      .image.image_contain
+                        img(data-src="./img/monet2.png", alt="monet").lazyload
+
+                .screen-7__item 
+                  svg.icon
+                    use(xlink:href='./img/icons/icons-sprite.svg#arrow-short')
+                  .screen-7__item-text 
+                    h5.screen-7__item-title !{$i18n.screen_7.text_3} 
+                    p.screen-7__item-text !{$i18n.screen_7.text_4}
+                  .screen-7__item-else 
+                    span + 0,1$
+                    .image.image_contain.screen-7__item-stock-image
+                      img(data-src="./img/stock-market.svg", alt="monet").lazyload
+
+              .screen-7__banner.image.image_cover
+                img(data-src="./img/chart3.png", alt="image").lazyload
+                span.screen-7__banner-text-1 !{$i18n.screen_7.text_5}
+                span.screen-7__banner-text-2 !{$i18n.screen_7.text_6}
+                span.screen-7__banner-text-3 !{$i18n.screen_7.text_7}
+                span.screen-7__banner-text-4 !{$i18n.screen_7.text_8}
+
+            .screen-7__bottom 
+              h2.screen-7__title !{$i18n.screen_7.text_9}
+              h5.screen-7__text-title !{$i18n.screen_7.text_10}
+              .screen-7__dreams
+                .screen-7__dream.screen-7__dream_1.image.image_cover 
+                  img(data-src="./img/dream_1.png", alt="image").lazyload
+                .screen-7__dream.screen-7__dream_2.image.image_cover 
+                  img(data-src="./img/dream_2.png", alt="image").lazyload
+                .screen-7__dream.screen-7__dream_3.image.image_cover 
+                  img(data-src="./img/dream_3.png", alt="image").lazyload
+                .screen-7__dream.screen-7__dream_4.image.image_cover 
+                  img(data-src="./img/dream_4.png", alt="image").lazyload
+
+              .screen-7__button 
+                a(href="javascript:void(0);").button 
+                  span.button__shadow
+                  span.button__text !{$i18n.button.title_5} 
+
 
     //webpack
     script(src="./scripts/app.js")

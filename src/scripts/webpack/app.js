@@ -159,12 +159,15 @@ const StaticAnimations = {
         {css:{color:'#5F74BE'}, duration:0.5, stagger:{each:0.5}}, '-=1.5')
       .to($screen_5_arrows[0], {css:{color:'#fff'}, duration:0.5}, '-=0.5')
 
-    let $screen_6_arrows = document.querySelectorAll('.screen-6__pyramid-arrow .icon');
+
+    let $screen_6_arrows = document.querySelectorAll('.screen-6__pyramid-arrow .icon'),
+        $screen_7_arrows = document.querySelectorAll('.screen-7__item .icon');
+
     this.animations['screen_5_arrows'] = gsap.timeline({repeat:-1})
-      .fromTo($screen_6_arrows[0], {css:{color:'#fff'}}, {css:{color:'#5F74BE'}, duration:0.5})
-      .fromTo($screen_6_arrows[1], {css:{color:'#5F74BE'}}, {css:{color:'#fff'}, duration:0.5}, '-=0.5')
-      .to($screen_6_arrows[0], {css:{color:'#fff'}, duration:0.5})
-      .to($screen_6_arrows[1], {css:{color:'#5F74BE'}, duration:0.5}, '-=0.5')
+      .fromTo([$screen_6_arrows[0], $screen_7_arrows[0]], {css:{color:'#fff'}}, {css:{color:'#5F74BE'}, duration:0.5})
+      .fromTo([$screen_6_arrows[1], $screen_7_arrows[1]], {css:{color:'#5F74BE'}}, {css:{color:'#fff'}, duration:0.5}, '-=0.5')
+      .to([$screen_6_arrows[0], $screen_7_arrows[0]], {css:{color:'#fff'}, duration:0.5})
+      .to([$screen_6_arrows[1], $screen_7_arrows[1]], {css:{color:'#5F74BE'}, duration:0.5}, '-=0.5')
 
 
     //bounce monet
@@ -175,11 +178,11 @@ const StaticAnimations = {
     });
 
     //gold
-    let $screen_3_gold = document.querySelector('.screen-3__gold');
+    let $screen_3_gold = document.querySelectorAll('.screen-3__gold');
     this.animations['screen_3_gold_bounce'] = gsap.effects.bounce($screen_3_gold);
     this.animations['screen_3_gold_bounce'].repeat(-1).play();
 
-    //screen 4 arrow
+    //screen 4
     let $screen_4_arrow = document.querySelector('.screen-4__arrow');
     this.animations['screen_4_arrow'] = gsap.timeline({repeat:-1})
       .fromTo($screen_4_arrow, {css:{color:'#5F74BE'}}, {css:{color:'#fff'}, duration:0.75})
@@ -187,7 +190,6 @@ const StaticAnimations = {
       
   }
 }
-
 
 const PageSlider = Object.create({
   create() {
@@ -211,10 +213,8 @@ const PageSlider = Object.create({
       if(index=='closest') {
         let y = window.pageYOffset,
             h = window.innerHeight;
-        index = Math.round(y / h);
-      } else {
-
-      }
+        index = Math.round(y / h) > $screens.length - 1 ? $screens.length - 1 : Math.round(y / h);
+      } 
 
       if(speed > 0) {
         gsap.to(window, {scrollTo: $screens[index], duration:speed, onComplete: () => {
@@ -226,6 +226,7 @@ const PageSlider = Object.create({
 
       if(this.index !== undefined && index !== this.index) $screens[this.index].dispatchEvent(new CustomEvent("leave"));
       if(index !== this.index) {
+        console.log(index)
         $screens[index].dispatchEvent(new CustomEvent("enter"));
       }
 
@@ -319,14 +320,20 @@ const onScrollAnimations = Object.create({
         $documents_3_img = document.querySelectorAll('.screen-3__documents .image'),
         //else
         $screen_2_images = document.querySelectorAll('.screen-2__bot, .screen-2__money'),
-        $screen_3_background = document.querySelector('.screen-3__background');
+        $screen_3_background = document.querySelector('.screen-3__background'),
+        $screen_7_background = document.querySelector('.screen-7__background'),
+        $screen_7_dreams = document.querySelectorAll('.screen-7__dream');
 
-    this.resetStyles = () => {
+    this.resetDynamicStyles = () => {
       gsap.set([$monet_1, $monet_1_img, $monet_2, $monet_2_img, $monet_3, $monet_3_img, $monet_4, $monet_4_img, $monet_5, $monet_5_img,
         $documents_1, $documents_1_img, $documents_2, $documents_2_img, $documents_3, $documents_3_img,
-        $screen_1_scene], {clearProps:'all'})
+        ], {clearProps:'all'})
 
       gsap.set($sky, {clearProps:'x, y'})
+    }
+
+    this.resetStaticStyles = () => {
+      gsap.set([$screen_1_scene, $screen_2_images, $screen_3_background, $screen_7_dreams], {clearProps:'all'})
     }
 
     this.createStaticAnimations = () => {
@@ -337,11 +344,17 @@ const onScrollAnimations = Object.create({
       
       this.staticAnimations['screen_3_background'] = gsap.timeline({paused:true})
         .fromTo($screen_3_background, {autoAlpha:0}, {autoAlpha:1})
+
+      this.staticAnimations['screen_7_background'] = gsap.timeline({paused:true})
+        .fromTo($screen_7_background, {autoAlpha:0}, {autoAlpha:1})
+
+      this.staticAnimations['screen_7_dreams'] = gsap.timeline({paused:true})
+        .fromTo($screen_7_dreams, {autoAlpha:0, scale:0.7}, {autoAlpha:1, scale:1, ease:'power2.out', stagger:{amount:0.2}}, '+=0.5')
     }
 
     this.createDynamicAnimations = () => {
 
-      this.resetStyles();
+      this.resetDynamicStyles();
 
       this.dynamicAnimations['sky'] = gsap.timeline({paused:true})
         .fromTo($sky, {y:0}, {
@@ -518,7 +531,14 @@ const onScrollAnimations = Object.create({
       new Meteorite({type: 2, speed: 2.6, position: 0.9, delay: 0.5});
       new Meteorite({type: 2, speed: 3, position: 0.7, delay: 0.5});
       new Meteorite({type: 3, speed: 3.4, position: 0.5, delay: 1});
-      console.log('enter 4')
+    }
+
+    this.enterEvents[6] = () => {
+      this.staticAnimations['screen_7_dreams'].play(0);
+      this.staticAnimations['screen_7_background'].play();
+    }
+    this.leaveEvents[6] = () => {
+      this.staticAnimations['screen_7_background'].reverse();
     }
 
     //events
@@ -532,6 +552,9 @@ const onScrollAnimations = Object.create({
     $screens[3].addEventListener('enter', this.enterEvents[3]);
 
     $screens[4].addEventListener('enter', this.enterEvents[4]);
+
+    $screens[6].addEventListener('enter', this.enterEvents[6]);
+    $screens[6].addEventListener('leave', this.leaveEvents[6]);
 
     this.initialized = true;
   },
@@ -560,7 +583,8 @@ const onScrollAnimations = Object.create({
       this.dynamicAnimations[key].kill();
     }
 
-    this.resetStyles();
+    this.resetStaticStyles();
+    this.resetDynamicStyles();
 
     for(let key in this) {
       if(this.hasOwnProperty(key)) delete this[key];

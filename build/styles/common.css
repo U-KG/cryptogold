@@ -1125,7 +1125,7 @@ table:not([class]) {
     transform: initial;
     width: 500px;
     height: 400px;
-    margin: 0 auto 50px auto; }
+    margin: 50px auto; }
   .screen-2__text-box {
     position: initial;
     left: initial;
@@ -1140,7 +1140,7 @@ table:not([class]) {
     --element-width: 90px;
     width: 200px;
     height: 270px;
-    top: 20px; }
+    top: 200px; }
   .screen-2__button {
     margin-top: 30px; } }
 
@@ -1154,9 +1154,9 @@ table:not([class]) {
   .screen-2__visual {
     width: 85vw;
     height: 70vw;
-    transform: translateX(-3%); }
+    margin: 40px 0; }
   .screen-2__button {
-    margin-top: 35px; } }
+    margin-top: 50px; } }
 
 .sky {
   position: absolute;
@@ -1260,6 +1260,10 @@ table:not([class]) {
   .screen-3__background .image {
     opacity: 0.2; }
 
+@media (min-width: 768px) {
+  .screen-3__gold_mobile {
+    display: none; } }
+
 @media (max-width: 1599.98px) {
   .screen-3__title {
     margin-bottom: 20px; }
@@ -1319,12 +1323,17 @@ table:not([class]) {
 @media (max-width: 767.98px) {
   .screen-3__button {
     position: initial; }
+  .screen-3__gold_desktop {
+    display: none; }
+  .screen-3__gold_mobile {
+    display: block; }
   .screen-3__video-content {
     width: 100%;
     margin-left: 0;
     margin-bottom: 50px; }
   .screen-3__text-1 {
-    font-size: 18px; }
+    font-size: 18px;
+    margin-bottom: 50px; }
     .screen-3__text-1 br {
       display: none; }
   .screen-3__text-3 {
@@ -1459,7 +1468,7 @@ table:not([class]) {
   .screen-4__list {
     margin-bottom: 0; }
   .screen-4__button {
-    margin-top: 35px; } }
+    margin-top: 50px; } }
 
 .screen-5__container {
   height: 695px;
@@ -1916,6 +1925,10 @@ table:not([class]) {
   font-size: 44px;
   font-weight: 700; }
 
+@media (min-width: 1600px) {
+  .screen-6__pyramid {
+    order: 2; } }
+
 @media (max-width: 1599.98px) {
   .screen-6__pyramid {
     flex: initial;
@@ -1978,5 +1991,185 @@ table:not([class]) {
 @media (max-width: 575.98px) {
   .screen-6__pyramid {
     width: 100%; } }
+
+.screen-7__background {
+  position: absolute;
+  width: 1200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .screen-7__background .image {
+    opacity: 0.5; }
+
+.screen-7__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px; }
+
+.screen-7__bottom {
+  text-align: center; }
+
+.screen-7__title {
+  margin-bottom: 20px; }
+
+.screen-7__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding-left: 100px; }
+  .screen-7__item:not(:last-child) {
+    margin-bottom: 18px; }
+  .screen-7__item .icon {
+    width: 70px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    left: 0; }
+
+.screen-7__item-title {
+  margin-bottom: 10px; }
+
+.screen-7__item-monet {
+  width: 85px;
+  margin-left: 25px; }
+
+.screen-7__item-else {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  flex: 0 0 auto; }
+  .screen-7__item-else span {
+    font-size: 44px;
+    color: #B100CE;
+    font-weight: 700;
+    white-space: nowrap; }
+
+.screen-7__item-stock-image {
+  margin-left: 28px;
+  margin-right: 5px;
+  width: 75px;
+  height: 75px; }
+
+.screen-7__banner {
+  padding: 27px 50px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 14px #B100CE;
+  font-weight: 700; }
+  .screen-7__banner span {
+    display: block;
+    position: relative;
+    z-index: 2;
+    text-align: center; }
+  .screen-7__banner-text-2 {
+    text-transform: uppercase;
+    color: #02A8B2; }
+  .screen-7__banner-text-4 {
+    text-transform: uppercase;
+    color: #B100CE; }
+
+.screen-7__dreams {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px -30px 0 0; }
+
+.screen-7__dream {
+  margin: 0 30px 0 0;
+  width: calc(25% - 30px);
+  border-radius: 50%;
+  overflow: hidden; }
+  .screen-7__dream::before {
+    content: '';
+    display: block;
+    padding-top: 100%; }
+  .screen-7__dream_1 {
+    box-shadow: 0px 0px 24px #B100CE; }
+  .screen-7__dream_2 {
+    box-shadow: 0px 0px 24px #0052F0; }
+  .screen-7__dream_3 {
+    box-shadow: 0px 0px 24px #11AACB; }
+  .screen-7__dream_4 {
+    box-shadow: 0px 0px 24px rgba(56, 255, 255, 0.98); }
+
+.screen-7__button {
+  margin-top: 50px; }
+
+@media (max-width: 1599.98px) {
+  .screen-7__dream {
+    width: 22vh; }
+  .screen-7__button {
+    margin-top: 40px; }
+  .screen-7__item-monet {
+    width: 70px; }
+  .screen-7__item-stock-image {
+    width: 60px;
+    height: 60px; }
+  .screen-7__item-else span {
+    font-size: 40px; }
+  .screen-7__title {
+    margin-bottom: 10px; } }
+
+@media (max-width: 1023.98px) {
+  .screen-7__top {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px; }
+  .screen-7__items {
+    margin-bottom: 40px; }
+  .screen-7__dreams {
+    margin-top: 40px; }
+  .screen-7__button {
+    margin-top: 50px; }
+  .screen-7__dream {
+    width: calc(25% - 30px); } }
+
+@media (max-width: 767.98px) {
+  .screen-7__dreams {
+    margin: 30px -20px 0 0; }
+  .screen-7__dream {
+    margin-right: 20px;
+    width: calc(25% - 20px); }
+  .screen-7__item {
+    padding-left: 75px; }
+    .screen-7__item .icon {
+      width: 50px;
+      height: 30px; } }
+
+@media (max-width: 575.98px) {
+  .screen-7__dreams {
+    margin-bottom: -20px; }
+  .screen-7__dream {
+    width: calc(50% - 20px);
+    margin-bottom: 20px; }
+  .screen-7__items {
+    width: 100%; }
+  .screen-7__item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+    text-align: center; }
+    .screen-7__item:not(:last-child) {
+      margin-bottom: 30px; }
+    .screen-7__item .icon {
+      bottom: 16px; }
+  .screen-7__item-text {
+    width: 100%; }
+  .screen-7__banner {
+    width: 100%; }
+  .screen-7__item-monet {
+    margin-left: 20px;
+    width: 60px;
+    height: 60px; }
+  .screen-7__item-else {
+    width: 100%;
+    justify-content: center; }
+    .screen-7__item-else span {
+      font-size: 32px; }
+  .screen-7__item-stock-image {
+    margin: 0 0 0 20px; }
+  .screen-7__item-else {
+    margin: 15px 0 0 0; } }
 
 /*# sourceMappingURL=maps/common.css.map */
