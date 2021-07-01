@@ -513,6 +513,13 @@ const onScrollAnimations = Object.create({
     this.enterEvents[1] = () => {
       StaticAnimations.animations['monet_1_inner'].timeScale(2).reverse();
       this.staticAnimations['screen_2_images'].play(0);
+
+      new Meteorite({type: 1, speed: 2, position: 0.48, delay: 0.51});
+      new Meteorite({type: 2, speed: 2.3, position: 0.72, delay: 0.4});
+      new Meteorite({type: 3, speed: 3, position: 0.3, delay: 0.52});
+      new Meteorite({type: 2, speed: 2.3, position: 0.8, delay: 0.5});
+      new Meteorite({type: 3, speed: 3, position: 0.75, delay: 0.42});
+      new Meteorite({type: 3, speed: 3.7, position: 0.56, delay: 0.9});
     }
     this.enterEvents[2] = () => {
       this.staticAnimations['screen_3_background'].play();
@@ -621,6 +628,15 @@ const MobileMeteorsAnimation = Object.create({
       new Meteorite({type: 3, speed: 3.4, position: 0.5, delay: 1});
     }
 
+    this.createMeteors_3 = () => {
+      new Meteorite({type: 1, speed: 2, position: 0.48, delay: 0.51});
+      new Meteorite({type: 2, speed: 2.3, position: 0.72, delay: 0.4});
+      new Meteorite({type: 3, speed: 3, position: 0.3, delay: 0.52});
+      new Meteorite({type: 2, speed: 2.3, position: 0.8, delay: 0.5});
+      new Meteorite({type: 3, speed: 3, position: 0.75, delay: 0.42});
+      new Meteorite({type: 3, speed: 3.7, position: 0.56, delay: 0.9});
+    }
+
     this.triggers = [];
 
     this.triggers.push(ScrollTrigger.create({
@@ -647,6 +663,18 @@ const MobileMeteorsAnimation = Object.create({
       }
     }))
 
+    this.triggers.push(ScrollTrigger.create({
+      trigger: $screens[1],
+      start: "center bottom",
+      end: "center top",
+      onEnter: () => {
+        this.createMeteors_3();
+      },
+      onEnterBack: () => {
+        this.createMeteors_3();
+      }
+    }))
+
     this.initialized = true;
   },
 
@@ -660,7 +688,6 @@ const MobileMeteorsAnimation = Object.create({
     }
   }
 })
-
 
 class Meteorite {
   constructor(options) {

@@ -380,13 +380,13 @@
     &_1 { 
       text-align: right;
       width: 295px;
-      left: 97px;
-      bottom: calc(50% + 65px);
+      left: 105px;
+      bottom: calc(50% + 45px);
     }
     &_2 {
-      width: 357px;
+      width: 500px;
       left: 730px;
-      bottom: calc(50% + 112px);
+      bottom: calc(50% + 126px);
     }
     &_3 {
       width: 313px;
@@ -397,7 +397,7 @@
     &_4 {
       width: 280px;
       right: -20px;
-      top: calc(50% + 60px);
+      top: calc(50% + 86px);
     }
   }
   @include media-breakpoint-down(xxl) {
@@ -411,11 +411,11 @@
     &__text-box {
       &_1 {
         width: 270px;
-        left: 72px;
+        left: 80px;
         bottom: 50%;
       }
       &_2 {
-        bottom: calc(50% + 90px);
+        bottom: calc(50% + 97px);
       }
       &_3 {
         top: calc(50% + 75px);
