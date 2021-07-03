@@ -1,5 +1,3 @@
-const Dev = true;
-
 import 'lazysizes';
 lazySizes.cfg.preloadAfterLoad = true;
 import {gsap} from "gsap";
@@ -13,6 +11,7 @@ gsap.defaults({
 
 import SwipeListener from 'swipe-listener';
 
+const Dev = false;
 const brakepoints = {
   sm: 576,
   md: 768,
@@ -20,27 +19,8 @@ const brakepoints = {
   xl: 1280,
   xxl: 1600
 }
-
 const $screens = document.querySelectorAll('.screen');
 const $main = document.querySelector('.main');
-
-window.addEventListener('load', () => {
-  document.body.style.overflow = 'auto';
-  document.body.classList.add('loaded');
-
-  CustomInteractionEvents.init();
-  StaticAnimations.init();
-  onScrollAnimations.create();
-  PageSlider.create();
-  MobileMeteorsAnimation.create();
-})
-
-//add swipe events
-SwipeListener($main);
-
-/* if(history.scrollRestoration) {
-  history.scrollRestoration = 'manual';
-} */
 
 function getCenter($el) {
   let y = $el.getBoundingClientRect().y,
@@ -51,19 +31,25 @@ function getCenter($el) {
   return {y: y + h / 2, x: x + w / 2};
 }
 
-const CustomInteractionEvents = {
-  targets: 'a, button, [data-custom-interaction]',
-  touchEndDelay: 100, //ms
-  init: function() {
+window.CustomInteractionEvents = Object.create({
+  targets: {
+    value: 'a, button, [data-custom-interaction]'
+  },
+  touchEndDelay: {
+    value: 100
+  }, 
+  init() {
+
     this.events = (event) => {
+      console.log(event.target)
       let $targets = [];
-      $targets[0] = event.target!==document?event.target.closest(this.targets):null;
+      $targets[0] = event.target!==document?event.target.closest(this.targets.value):null;
       let $element = $targets[0], i = 0;
   
       while($targets[0]) {
         $element = $element.parentNode;
         if($element!==document) {
-          if($element.matches(this.targets)) {
+          if($element.matches(this.targets.value)) {
             i++;
             $targets[i] = $element;
           }
@@ -89,7 +75,7 @@ const CustomInteractionEvents = {
             for(let $target of $targets) {
               $target.removeAttribute('data-touch');
             }
-          }, this.touchEndDelay)
+          }, this.touchEndDelay.value)
         }
       } 
       //mouseenter
@@ -117,11 +103,24 @@ const CustomInteractionEvents = {
     document.addEventListener('mousedown',   this.events);
     document.addEventListener('mouseup',     this.events);
     document.addEventListener('contextmenu', this.events);
+  },
+  destroy() {
+    document.removeEventListener('touchstart',  this.events);
+    document.removeEventListener('touchend',    this.events);
+    document.removeEventListener('mouseenter',  this.events, true);
+    document.removeEventListener('mouseleave',  this.events, true);
+    document.removeEventListener('mousedown',   this.events);
+    document.removeEventListener('mouseup',     this.events);
+    document.removeEventListener('contextmenu', this.events);
+    
+    for(let key in this) {
+      if(this.hasOwnProperty(key)) delete this[key];
+    }
   }
-}
+})
 
-const StaticAnimations = {
-  init: function() {
+window.StaticAnimations = Object.create({
+  init() {
     gsap.registerEffect({
       name: "bounce",
       effect: ($element) => {
@@ -187,11 +186,19 @@ const StaticAnimations = {
     this.animations['screen_4_arrow'] = gsap.timeline({repeat:-1})
       .fromTo($screen_4_arrow, {css:{color:'#5F74BE'}}, {css:{color:'#fff'}, duration:0.75})
       .to($screen_4_arrow, {css:{color:'#5F74BE'}, duration:0.75})
-      
-  }
-}
+  },
 
-const PageSlider = Object.create({
+  destroy() {
+    for(let key in this.animations) {
+      this.animations[key].kill();
+    }
+    for(let key in this) {
+      if(this.hasOwnProperty(key)) delete this[key];
+    }
+  }
+})
+
+window.PageSlider = Object.create({
   create() {
     this.check = () => {
       if(window.innerWidth >= brakepoints.xl) {
@@ -264,7 +271,10 @@ const PageSlider = Object.create({
       else if(dir.bottom && index > 0) this.scrollTo(index - 1);
     }
     
+    //add swipe events
+    SwipeListener($main);
     $main.addEventListener('swipe', this.swipeEvent);
+
     window.addEventListener('wheel', this.scrollEvent);
     window.addEventListener('resize', this.fixScreenEvent);
 
@@ -280,10 +290,15 @@ const PageSlider = Object.create({
     for(let key in this) {
       if(this.hasOwnProperty(key)) delete this[key];
     }
+  },
+
+  destroy() {
+    window.removeEventListener('resize', this.check);
+    if(this.initialized) this.kill();
   }
 })
 
-const onScrollAnimations = Object.create({
+window.onScrollAnimations = Object.create({
   create() {
     this.check = () => {
       if(window.innerWidth >= brakepoints.xl) {
@@ -596,11 +611,15 @@ const onScrollAnimations = Object.create({
     for(let key in this) {
       if(this.hasOwnProperty(key)) delete this[key];
     }
-  }
+  },
 
+  destroy() {
+    window.removeEventListener('resize', this.check);
+    if(this.initialized) this.kill();
+  }
 })
 
-const MobileMeteorsAnimation = Object.create({
+window.MobileMeteorsAnimation = Object.create({
   create() {
     this.check = () => {
       if(window.innerWidth < brakepoints.xl) {
@@ -686,6 +705,11 @@ const MobileMeteorsAnimation = Object.create({
     for(let key in this) {
       if(this.hasOwnProperty(key)) delete this[key];
     }
+  },
+
+  destroy() {
+    window.removeEventListener('resize', this.check);
+    if(this.initialized) this.kill();
   }
 })
 

@@ -23,7 +23,7 @@ html(lang=$i18n.lang)
     //styles
     link(rel="stylesheet" href="./styles/common.css")
 
-  body(style='overflow:hidden;opacity:0;visibility:hidden;')
+  body
     .wrapper
       main.main
         .sky(style='background-image:url("./img/sky.svg")')
@@ -380,6 +380,8 @@ html(lang=$i18n.lang)
 
     //webpack
     script(src="./scripts/app.js")
+
+    script(src="./scripts/start.js")
 
     //preview only
     include blocks/helper
