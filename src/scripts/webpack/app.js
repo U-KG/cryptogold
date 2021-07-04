@@ -41,7 +41,6 @@ window.CustomInteractionEvents = Object.create({
   init() {
 
     this.events = (event) => {
-      console.log(event.target)
       let $targets = [];
       $targets[0] = event.target!==document?event.target.closest(this.targets.value):null;
       let $element = $targets[0], i = 0;
@@ -233,7 +232,6 @@ window.PageSlider = Object.create({
 
       if(this.index !== undefined && index !== this.index) $screens[this.index].dispatchEvent(new CustomEvent("leave"));
       if(index !== this.index) {
-        console.log(index)
         $screens[index].dispatchEvent(new CustomEvent("enter"));
       }
 
@@ -701,7 +699,6 @@ window.MobileMeteorsAnimation = Object.create({
     for(let trigger of this.triggers) {
       trigger.kill();
     }
-    console.log('kill')
     for(let key in this) {
       if(this.hasOwnProperty(key)) delete this[key];
     }
