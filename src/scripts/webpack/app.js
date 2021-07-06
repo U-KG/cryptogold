@@ -582,7 +582,7 @@ window.onScrollAnimations = Object.create({
   kill() {
     window.removeEventListener('resize', this.createDynamicAnimations);
 
-    if(!StaticAnimations.animations['monet_1_inner'].isActive()) {
+    if(StaticAnimations.animations && !StaticAnimations.animations['monet_1_inner'].isActive()) {
       StaticAnimations.animations['monet_1_inner'].timeScale(1).play();
     }
 
