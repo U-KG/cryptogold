@@ -379,7 +379,8 @@ a {
   position: relative; }
 
 .wrapper {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 @media (min-width: 1280px) {
   .screen {
