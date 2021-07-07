@@ -22,37 +22,6 @@ const brakepoints = {
 const $screens = document.querySelectorAll('.screen');
 const $main = document.querySelector('.main');
 
-if(history.scrollRestoration) {
-  history.scrollRestoration = 'manual';
-}
-
-SwipeListener($main);
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  
-
-});
-
-window.addEventListener('load', () => {
-  document.body.style.overflow = 'auto';
-
-  Lang.init();
-  Lang.change(() => {
-
-    CustomInteractionEvents.init();
-    StaticAnimations.init();
-    onScrollAnimations.create();
-    PageSlider.create();
-    MobileMeteorsAnimation.create();
-
-    document.body.classList.add('loaded');
-
-  });
-})
-
-
-
 function getCenter($el) {
   let y = $el.getBoundingClientRect().y,
       x = $el.getBoundingClientRect().x,
@@ -62,7 +31,7 @@ function getCenter($el) {
   return {y: y + h / 2, x: x + w / 2};
 }
 
-const CustomInteractionEvents = Object.create({
+window.CustomInteractionEvents = Object.create({
   targets: {
     value: 'a, button, [data-custom-interaction]'
   },
@@ -148,7 +117,7 @@ const CustomInteractionEvents = Object.create({
   }
 })
 
-const StaticAnimations = Object.create({
+window.StaticAnimations = Object.create({
   init() {
 
     gsap.registerEffect({
@@ -228,7 +197,7 @@ const StaticAnimations = Object.create({
   }
 })
 
-const PageSlider = Object.create({
+window.PageSlider = Object.create({
   create() {
     this.check = () => {
       if(window.innerWidth >= brakepoints.xl) {
@@ -292,7 +261,6 @@ const PageSlider = Object.create({
     }
     
     this.swipeEvent = (event) => {
-      console.log('events')
       if(this.inScroll) return;
 
       let dir = event.detail.directions,
@@ -303,6 +271,7 @@ const PageSlider = Object.create({
     }
     
     //add swipe events
+    SwipeListener($main);
     $main.addEventListener('swipe', this.swipeEvent);
     window.addEventListener('wheel', this.scrollEvent);
     window.addEventListener('resize', this.fixScreenEvent);
@@ -327,7 +296,7 @@ const PageSlider = Object.create({
   }
 })
 
-const onScrollAnimations = Object.create({
+window.onScrollAnimations = Object.create({
   create() {
     this.check = () => {
       if(window.innerWidth >= brakepoints.xl) {
@@ -649,7 +618,7 @@ const onScrollAnimations = Object.create({
   }
 })
 
-const MobileMeteorsAnimation = Object.create({
+window.MobileMeteorsAnimation = Object.create({
   create() {
     this.check = () => {
       if(window.innerWidth < brakepoints.xl) {
@@ -739,42 +708,6 @@ const MobileMeteorsAnimation = Object.create({
   destroy() {
     window.removeEventListener('resize', this.check);
     if(this.initialized) this.kill();
-  }
-})
-
-const Lang = Object.create({
-  init() {
-
-    this.lang_default = 'ru';
-    this.lang_saved = localStorage.getItem('savedLang');
-    this.lang_name = this.lang_saved ? this.lang_saved : this.lang_default;
-
-    this.$text_elements = document.querySelectorAll('[data-text]');
-
-  },
-
-  change(callback) {
-
-    fetch(`../locales/${this.lang_name}.json`)
-      .then(res => res.json())
-      .then(data => {
-        this.lang_json = data;
-
-        console.log(this.lang_json)
-        
-        document.documentElement.setAttribute('lang', this.lang_name);
-        
-        this.$text_elements.forEach($element => {
-          let attr = $element.getAttribute('data-text').split('.');
-          
-          $element.insertAdjacentHTML('afterbegin', this.lang_json[attr[0]][attr[1]])
-
-        })
-
-
-        if(callback) callback();
-      });
-
   }
 })
 
