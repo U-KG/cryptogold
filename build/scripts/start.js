@@ -7,14 +7,3 @@ window.addEventListener('load', () => {
   MobileMeteorsAnimation.create();
 
 })
-
-//на leave
-/* 
-
-CustomInteractionEvents.destroy();
-StaticAnimations.destroy();
-onScrollAnimations.destroy();
-PageSlider.destroy();
-MobileMeteorsAnimation.destroy();
-
-*/

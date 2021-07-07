@@ -223,7 +223,6 @@ window.PageSlider = Object.create({
       } 
 
       if(speed > 0) {
-        console.log('scrollTo', $screens[index])
         gsap.to(window, {scrollTo: $screens[index], duration:speed, onComplete: () => {
           setTimeout(() => { this.inScroll = false; }, 100);
         }});
