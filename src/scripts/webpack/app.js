@@ -368,8 +368,6 @@ window.onScrollAnimations = Object.create({
 
     this.createDynamicAnimations = () => {
 
-      console.log('createDynamicAnimations created');
-
       this.resetDynamicStyles();
 
       this.dynamicAnimations['sky'] = gsap.timeline({paused:true})
@@ -762,10 +760,12 @@ class Meteorite {
         y_end = this.h * index,
         x_end = this.w * -index;
 
+    
+
     this.animation = gsap.timeline()
       .to(this.$meteorite, {x: x_end, y: y_end, duration: this.speed, ease:'none'})
       .eventCallback('onComplete', () => {
-        this.destroy();
+        //this.destroy();
       })
   }
 
