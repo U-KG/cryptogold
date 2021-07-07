@@ -39,9 +39,6 @@ window.CustomInteractionEvents = Object.create({
     value: 100
   }, 
   init() {
-    console.log('CustomInteractionEvents initialized')
-    
-
     this.events = (event) => {
       let $targets = [];
       $targets[0] = event.target!==document?event.target.closest(this.targets.value):null;
@@ -106,8 +103,6 @@ window.CustomInteractionEvents = Object.create({
     document.addEventListener('contextmenu', this.events);
   },
   destroy() {
-    console.log('CustomInteractionEvents destroyed')
-
     document.removeEventListener('touchstart',  this.events);
     document.removeEventListener('touchend',    this.events);
     document.removeEventListener('mouseenter',  this.events, true);
@@ -124,7 +119,6 @@ window.CustomInteractionEvents = Object.create({
 
 window.StaticAnimations = Object.create({
   init() {
-    console.log('StaticAnimations initialized')
 
     gsap.registerEffect({
       name: "bounce",
@@ -194,7 +188,6 @@ window.StaticAnimations = Object.create({
   },
 
   destroy() {
-    console.log('StaticAnimations destroyed')
     for(let key in this.animations) {
       this.animations[key].kill();
     }
@@ -218,14 +211,11 @@ window.PageSlider = Object.create({
   },
 
   init() {
-    console.log('PageSlider initialized')
 
     document.body.style.overflow = 'hidden';
 
     this.scrollTo = (index, speed = 1) => {
       if(speed > 0) this.inScroll = true;
-      
-      console.log(index)
 
       if(index=='closest') {
         let y = window.pageYOffset,
@@ -301,7 +291,6 @@ window.PageSlider = Object.create({
   },
 
   destroy() {
-    console.log('PageSlider destroyed')
     window.removeEventListener('resize', this.check);
     if(this.initialized) this.kill();
   }
@@ -321,7 +310,6 @@ window.onScrollAnimations = Object.create({
   },
 
   init() {
-    console.log('onScrollAnimations initialized')
 
     this.dynamicAnimations = {};
     this.staticAnimations = {};
@@ -379,6 +367,8 @@ window.onScrollAnimations = Object.create({
     }
 
     this.createDynamicAnimations = () => {
+
+      console.log('createDynamicAnimations created');
 
       this.resetDynamicStyles();
 
@@ -475,8 +465,6 @@ window.onScrollAnimations = Object.create({
       end: () => { return `+=${window.innerHeight * 6} top`; },
       onUpdate: self => {
         this.dynamicAnimations['sky'].progress(self.progress);
-
-        console.log(self.start, self.end, self.progress);
       },
       onRefresh: self => {
         this.dynamicAnimations['sky'].progress(self.progress);
@@ -627,7 +615,6 @@ window.onScrollAnimations = Object.create({
   },
 
   destroy() {
-    console.log('onScrollAnimations destroyed')
     window.removeEventListener('resize', this.check);
     if(this.initialized) this.kill();
   }
