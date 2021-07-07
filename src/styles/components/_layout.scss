@@ -25,23 +25,25 @@
 }
 
 .container {
+  padding: 0 !important;
   position: relative;
   z-index: 2;
   width: 100%;
   margin: 0 auto;
   @include media-breakpoint-up(sm) {
-    max-width: map-get($container-max-widths, sm);
+    max-width: map-get($container-max-widths, sm) !important;
   }
   @include media-breakpoint-up(md) {
-    max-width: map-get($container-max-widths, md);
+    max-width: map-get($container-max-widths, md) !important;
   }
   @include media-breakpoint-up(lg) {
-    max-width: map-get($container-max-widths, lg);
+    max-width: map-get($container-max-widths, lg) !important;
   }
   @include media-breakpoint-up(xl) {
-    max-width: map-get($container-max-widths, xl);
+    max-width: map-get($container-max-widths, xl) !important;
   }
   @include media-breakpoint-down(sm) {
-    padding: 0 16px;
+    padding: 0 16px !important;
+    max-width: 100% !important;
   }
 }

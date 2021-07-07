@@ -305,12 +305,12 @@ template {
   display: none; }
 
 .landing {
-  overflow: hidden;
-  background-color: #000;
-  font-family: 'Futura PT', sans-serif;
-  color: #fff;
-  font-size: 24px;
-  line-height: 1.25;
+  overflow: hidden !important;
+  background-color: #000 !important;
+  font-family: 'Futura PT', sans-serif !important;
+  color: #fff !important;
+  font-size: 24px !important;
+  line-height: 1.25 !important;
   /*========== Basic ==========*/
   /*========== Layout ==========*/
   /*========== Components ==========*/
@@ -319,16 +319,16 @@ template {
   /*========== Blocks ==========*/ }
   @media (max-width: 1599.98px) {
     .landing {
-      font-size: 20px; } }
+      font-size: 20px !important; } }
   @media (max-width: 1279.98px) {
     .landing {
-      font-size: 16px; } }
+      font-size: 16px !important; } }
   @media (max-width: 1023.98px) {
     .landing {
-      font-size: 20px; } }
+      font-size: 20px !important; } }
   @media (max-width: 575.98px) {
     .landing {
-      font-size: 18px; } }
+      font-size: 18px !important; } }
   .landing * {
     box-sizing: border-box;
     -webkit-touch-callout: none;
@@ -395,31 +395,34 @@ template {
     .landing .screen {
       margin-bottom: 100px; } }
   .landing .container {
+    padding: 0 !important;
     position: relative;
     z-index: 2;
     width: 100%;
     margin: 0 auto; }
     @media (min-width: 576px) {
       .landing .container {
-        max-width: 500px; } }
+        max-width: 500px !important; } }
     @media (min-width: 768px) {
       .landing .container {
-        max-width: 700px; } }
+        max-width: 700px !important; } }
     @media (min-width: 1024px) {
       .landing .container {
-        max-width: 900px; } }
+        max-width: 900px !important; } }
     @media (min-width: 1280px) {
       .landing .container {
-        max-width: 1200px; } }
+        max-width: 1200px !important; } }
     @media (max-width: 575.98px) {
       .landing .container {
-        padding: 0 16px; } }
+        padding: 0 16px !important;
+        max-width: 100% !important; } }
   .landing img {
     display: block;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
-            user-select: none; }
+            user-select: none;
+    pointer-events: none; }
     .landing img.lazyload, .landing img.lazyloading {
       opacity: 0;
       visibility: hidden; }
@@ -451,106 +454,57 @@ template {
     font-weight: inherit; }
   .landing h1, .landing .h1, .landing h2, .landing .h2, .landing h3, .landing .h3, .landing h4, .landing .h4, .landing h5, .landing .h5, .landing h6, .landing .h6 {
     margin: 0;
-    line-height: 1.2; }
+    line-height: 1.2 !important;
+    font-weight: 700 !important; }
   .landing h1, .landing .h1 {
-    font-size: 56px;
-    line-height: 1.1; }
+    font-size: 56px !important;
+    line-height: 1.1 !important; }
   .landing h2, .landing .h2 {
-    font-size: 46px;
-    line-height: 1.2; }
+    font-size: 46px !important;
+    line-height: 1.2 !important; }
   .landing h3, .landing .h3 {
-    font-size: 40px; }
+    font-size: 40px !important; }
   .landing h4, .landing .h4 {
-    font-size: 34px; }
+    font-size: 34px !important; }
   .landing h5, .landing .h5 {
-    font-size: 28px; }
+    font-size: 28px !important; }
   .landing h6, .landing .h6 {
-    font-size: 1rem; }
+    font-size: 1rem !important; }
   @media (max-width: 1599.98px) {
     .landing h1, .landing .h1 {
-      font-size: 50px; }
+      font-size: 50px !important; }
     .landing h2, .landing .h2 {
-      font-size: 42px; }
+      font-size: 42px !important; }
     .landing h5, .landing .h5 {
-      font-size: 24px; } }
+      font-size: 24px !important; } }
   @media (max-width: 1279.98px) {
     .landing h1, .landing .h1 {
-      font-size: 42px; }
+      font-size: 42px !important; }
     .landing h2, .landing .h2 {
-      font-size: 38px; }
+      font-size: 38px !important; }
     .landing h5, .landing .h5 {
-      font-size: 22px; } }
+      font-size: 22px !important; } }
   @media (max-width: 767.98px) {
     .landing h1, .landing .h1 {
-      font-size: 34px;
-      line-height: 1.2; }
+      font-size: 34px !important;
+      line-height: 1.2 !important; }
     .landing h2, .landing .h2 {
-      font-size: 28px; }
+      font-size: 28px !important; }
     .landing h5, .landing .h5 {
-      font-size: 20px; } }
+      font-size: 20px !important; } }
   .landing p {
-    margin: 0 0 20px 0; }
+    margin: 0 0 20px 0 !important; }
     .landing p:last-child {
-      margin-bottom: 0; }
+      margin-bottom: 0 !important; }
   .landing mark {
-    background-color: transparent;
-    color: var(--color-accent); }
-  .landing figure {
-    margin: 1.25rem 0; }
-    .landing figure:first-child {
-      margin-top: 0; }
-    .landing figure:last-child {
-      margin-bottom: 0; }
-  .landing figcaption {
-    display: block;
-    margin: 10px 0 0 0;
-    color: var(--color-muted);
-    font-size: 0.875rem; }
+    background-color: transparent !important;
+    color: var(--color-accent) !important; }
   .landing img:not([class]) {
     display: block;
     width: auto;
     max-width: 100%; }
   .landing strong, .landing b {
     font-weight: 700; }
-  .landing blockquote {
-    padding: 20px 40px;
-    background-color: var(--color-muted);
-    margin: 1.25rem 0; }
-    .landing blockquote:last-child {
-      margin-bottom: 0; }
-    .landing blockquote:first-child {
-      margin-top: 0; }
-  .landing ul:not([class]):not(:last-child), .landing ol:not([class]):not(:last-child) {
-    margin-bottom: 1.25rem; }
-  .landing ul:not([class]) li:not([class]):not(:last-child), .landing ol:not([class]) li:not([class]):not(:last-child) {
-    margin: 0 0 0.75rem 0; }
-  .landing ul:not([class]) {
-    padding-left: 1rem; }
-    .landing ul:not([class]) li:not([class]) {
-      position: relative;
-      padding-left: calc(8px + 1rem); }
-      .landing ul:not([class]) li:not([class])::before {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: calc(50% - 4px);
-        width: 8px;
-        height: 8px;
-        border-radius: 8px;
-        background-color: var(--color-accent); }
-  .landing ol:not([class]) {
-    counter-reset: section;
-    padding-left: 1rem; }
-    .landing ol:not([class]) li:not([class]) {
-      padding-left: calc(1rem + 8px);
-      position: relative; }
-      .landing ol:not([class]) li:not([class]):before {
-        counter-increment: section;
-        content: counter(section) ". ";
-        position: absolute;
-        left: 0;
-        top: 0; }
   .landing a:not([class]), .landing .link {
     transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
     border-bottom: 1px solid var(--color-text);
@@ -561,31 +515,6 @@ template {
       border-color: transparent; }
     .landing a:not([class])[data-focus], .landing .link[data-focus] {
       color: var(--color-accent-focus); }
-  .landing .table {
-    overflow: auto; }
-  .landing table:not([class]) {
-    min-width: 100%; }
-    .landing table:not([class]) th {
-      font-weight: 700;
-      padding: 10px 16px 10px 0; }
-      .landing table:not([class]) th:first-child {
-        padding-left: 16px; }
-      .landing table:not([class]) th:last-child {
-        text-align: center; }
-    .landing table:not([class]) td {
-      padding: 12px 16px 12px 0;
-      transition: background-color 0.15s ease-in-out; }
-      .landing table:not([class]) td:first-child {
-        padding-left: 16px; }
-      .landing table:not([class]) td:last-child {
-        text-align: center; }
-    .landing table:not([class]) th,
-    .landing table:not([class]) td {
-      border-bottom: 1px solid var(--color-muted);
-      text-align: left;
-      width: 25%; }
-    .landing table:not([class]) tr[data-touch] td, .landing table:not([class]) tr[data-hover] td {
-      background-color: var(--color-grayish); }
   .landing .button {
     position: relative;
     display: inline-flex;
