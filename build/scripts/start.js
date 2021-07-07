@@ -18,12 +18,3 @@ PageSlider.destroy();
 MobileMeteorsAnimation.destroy();
 
 */
-
-
-setTimeout(() => {
-  CustomInteractionEvents.destroy();
-  StaticAnimations.destroy();
-  onScrollAnimations.destroy();
-  PageSlider.destroy();
-  MobileMeteorsAnimation.destroy();
-}, 4000);

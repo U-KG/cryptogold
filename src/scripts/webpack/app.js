@@ -120,6 +120,8 @@ window.CustomInteractionEvents = Object.create({
 
 window.StaticAnimations = Object.create({
   init() {
+    console.log('StaticAnimations initialized')
+
     gsap.registerEffect({
       name: "bounce",
       effect: ($element) => {
@@ -134,7 +136,7 @@ window.StaticAnimations = Object.create({
 
     let $screen_2_refresh = document.querySelectorAll('.screen-2__refresh');
     this.animations['screen_2_refresh'] = gsap.timeline({repeat:-1})
-      .fromTo( $screen_2_refresh, {rotatation:0}, {rotation:-360, ease:'none', duration:2})
+      .fromTo($screen_2_refresh, {rotatation:0}, {rotation:-360, ease:'none', duration:2})
 
     let $screen_2_arrows = document.querySelectorAll('.screen-2__arrow');
     this.animations['screen_2_arrows'] = gsap.timeline({repeat:-1})
@@ -188,6 +190,7 @@ window.StaticAnimations = Object.create({
   },
 
   destroy() {
+    console.log('StaticAnimations destroyed')
     for(let key in this.animations) {
       this.animations[key].kill();
     }
@@ -211,6 +214,8 @@ window.PageSlider = Object.create({
   },
 
   init() {
+    console.log('PageSlider initialized')
+
     document.body.style.overflow = 'hidden';
 
     this.scrollTo = (index, speed = 1) => {
@@ -253,8 +258,10 @@ window.PageSlider = Object.create({
       let index = this.index ? this.index : 0;
 
       if(event.deltaY > 0) {
+        console.log('scroll bottom')
         if(index < $screens.length - 1) this.scrollTo(index + 1);
       } else if(event.deltaY < 0) {
+        console.log('scroll top')
         if(index > 0) this.scrollTo(index - 1);
       }
     }
@@ -272,7 +279,6 @@ window.PageSlider = Object.create({
     //add swipe events
     SwipeListener($main);
     $main.addEventListener('swipe', this.swipeEvent);
-
     window.addEventListener('wheel', this.scrollEvent);
     window.addEventListener('resize', this.fixScreenEvent);
 
@@ -291,6 +297,7 @@ window.PageSlider = Object.create({
   },
 
   destroy() {
+    console.log('PageSlider destroyed')
     window.removeEventListener('resize', this.check);
     if(this.initialized) this.kill();
   }
@@ -310,6 +317,8 @@ window.onScrollAnimations = Object.create({
   },
 
   init() {
+    console.log('onScrollAnimations initialized')
+
     this.dynamicAnimations = {};
     this.staticAnimations = {};
 
@@ -612,6 +621,7 @@ window.onScrollAnimations = Object.create({
   },
 
   destroy() {
+    console.log('onScrollAnimations destroyed')
     window.removeEventListener('resize', this.check);
     if(this.initialized) this.kill();
   }
