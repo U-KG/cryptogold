@@ -725,7 +725,7 @@ class Meteorite {
 
   start() {
     this.$parent = document.querySelector('.sky');
-    this.vector = `<svg width="300" height="245" viewBox="0 0 300 245" fill="none" xmlns="http://www.w3.org/2000/svg">
+    this.vector = `<svg style='display:block;width:100%;height:100%;' width="300" height="245" viewBox="0 0 300 245" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path style="mix-blend-mode:screen" d="M10.9313 243.012L299.62 0.87207L2.43934 235.332C-0.490623 237.592 -0.664456 240.872 1.71925 242.912C4.20227 245.392 8.01375 245.202 10.8444 243.302L10.9313 243.012Z" fill="url(#paint0_linear)"/>
       <defs>
       <linearGradient id="paint0_linear" x1="161.828" y1="170735" x2="69306.3" y2="170735" gradientUnits="userSpaceOnUse">
@@ -744,6 +744,20 @@ class Meteorite {
     this.$meteorite.classList.add('meteorite', `meteorite_type-${this.type}`);
     this.$meteorite.insertAdjacentHTML('afterbegin', this.vector);
     this.$parent.insertAdjacentElement('afterbegin', this.$meteorite);
+
+    this.$meteorite.style.position = 'absolute';
+    if(this.type==1) {
+      this.$meteorite.style.width = '300px';
+      this.$meteorite.style.height = '240px';
+    } else if(this.type==2) {
+      this.$meteorite.style.width = '132px';
+      this.$meteorite.style.height = '107px';
+    } else if(this.type==3) {
+      this.$meteorite.style.width = '300px';
+      this.$meteorite.style.height = '240px';
+      this.$meteorite.style.opacity = '0.2';
+    }
+
 
     this.h = this.$meteorite.getBoundingClientRect().height;
     this.w = this.$meteorite.getBoundingClientRect().width;
