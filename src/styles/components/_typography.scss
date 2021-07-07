@@ -1,3 +1,23 @@
+body {
+  font-family: 'Futura PT', sans-serif;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1.25;
+  text-rendering: geometricPrecision;
+  @include media-breakpoint-down(xxl) {
+    font-size: 20px;
+  }
+  @include media-breakpoint-down(xl) {
+    font-size: 16px;
+  }
+  @include media-breakpoint-down(lg) {
+    font-size: 20px;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 18px;
+  }
+}
+
 button, input, textarea {
   text-rendering: inherit;
   font-weight: inherit;
@@ -5,76 +25,76 @@ button, input, textarea {
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin: 0;
-  line-height: 1.2 !important;
-  font-weight: 700 !important;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
 h1, .h1 {
-  font-size: 56px !important;
-  line-height: 1.1 !important;
+  font-size: 56px;
+  line-height: 1.1;
 }
 h2, .h2 {
-  font-size: 46px !important;
-  line-height: 1.2 !important;
+  font-size: 46px;
+  line-height: 1.2;
 }
 h3, .h3 {
-  font-size: 40px !important;
+  font-size: 40px;
 }
 h4, .h4 {
-  font-size: 34px !important;
+  font-size: 34px;
 }
 h5, .h5 {
-  font-size: 28px !important;
+  font-size: 28px;
 }
 h6, .h6 {
-  font-size: 1rem !important;
+  font-size: 1rem;
 }
 @include media-breakpoint-down(xxl) {
   h1, .h1 {
-    font-size: 50px !important;
+    font-size: 50px;
   }
   h2, .h2 {
-    font-size: 42px !important;
+    font-size: 42px;
   }
   h5, .h5 {
-    font-size: 24px !important;
+    font-size: 24px;
   }
 
 }
 @include media-breakpoint-down(xl) {
   h1, .h1 {
-    font-size: 42px !important;
+    font-size: 42px;
   }
   h2, .h2 {
-    font-size: 38px !important;
+    font-size: 38px;
   }
   h5, .h5 {
-    font-size: 22px !important;
+    font-size: 22px;
   }
 }
 @include media-breakpoint-down(md) {
   h1, .h1 {
-    font-size: 34px !important;
-    line-height: 1.2 !important;
+    font-size: 34px;
+    line-height: 1.2;
   }
   h2, .h2 {
-    font-size: 28px !important;
+    font-size: 28px;
   }
   h5, .h5 {
-    font-size: 20px !important;
+    font-size: 20px;
   }
 }
 
 p {
-  margin: 0 0 20px 0 !important;
+  margin: 0 0 20px 0;
   &:last-child {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
   }
 }
 
 mark {
-  background-color: transparent !important;
-  color: var(--color-accent) !important;
+  background-color: transparent;
+  color: var(--color-accent);
 }
 
 img:not([class]) {
@@ -85,18 +105,4 @@ img:not([class]) {
 
 strong, b {
   font-weight: 700;
-}
-
-a:not([class]), .link {
-  transition: color $trs1, border-color $trs1;
-  border-bottom: 1px solid var(--color-text);
-  text-decoration: none;
-  color: inherit;
-  &[data-touch], &[data-hover] {
-    color: var(--color-accent-hover);
-    border-color: transparent;
-  }
-  &[data-focus] {
-    color: var(--color-accent-focus);
-  }
 }

@@ -22,6 +22,26 @@ const brakepoints = {
 const $screens = document.querySelectorAll('.screen');
 const $main = document.querySelector('.main');
 
+window.addEventListener('load', () => {
+  document.body.style.overflow = 'auto';
+
+  CustomInteractionEvents.init();
+  StaticAnimations.init();
+  onScrollAnimations.create();
+  PageSlider.create();
+  MobileMeteorsAnimation.create();
+
+  document.body.classList.add('loaded');
+})
+
+//add swipe events
+SwipeListener($main);
+
+if(history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+
+
 function getCenter($el) {
   let y = $el.getBoundingClientRect().y,
       x = $el.getBoundingClientRect().x,
@@ -31,7 +51,7 @@ function getCenter($el) {
   return {y: y + h / 2, x: x + w / 2};
 }
 
-window.CustomInteractionEvents = Object.create({
+const CustomInteractionEvents = Object.create({
   targets: {
     value: 'a, button, [data-custom-interaction]'
   },
@@ -117,7 +137,7 @@ window.CustomInteractionEvents = Object.create({
   }
 })
 
-window.StaticAnimations = Object.create({
+const StaticAnimations = Object.create({
   init() {
 
     gsap.registerEffect({
@@ -197,7 +217,7 @@ window.StaticAnimations = Object.create({
   }
 })
 
-window.PageSlider = Object.create({
+const PageSlider = Object.create({
   create() {
     this.check = () => {
       if(window.innerWidth >= brakepoints.xl) {
@@ -269,8 +289,6 @@ window.PageSlider = Object.create({
       else if(dir.bottom && index > 0) this.scrollTo(index - 1);
     }
     
-    //add swipe events
-    SwipeListener($main);
     $main.addEventListener('swipe', this.swipeEvent);
     window.addEventListener('wheel', this.scrollEvent);
     window.addEventListener('resize', this.fixScreenEvent);
@@ -295,7 +313,7 @@ window.PageSlider = Object.create({
   }
 })
 
-window.onScrollAnimations = Object.create({
+const onScrollAnimations = Object.create({
   create() {
     this.check = () => {
       if(window.innerWidth >= brakepoints.xl) {
@@ -617,7 +635,7 @@ window.onScrollAnimations = Object.create({
   }
 })
 
-window.MobileMeteorsAnimation = Object.create({
+const MobileMeteorsAnimation = Object.create({
   create() {
     this.check = () => {
       if(window.innerWidth < brakepoints.xl) {
