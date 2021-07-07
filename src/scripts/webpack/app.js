@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
   LangToggle.init();
   Lang.init();
 
-  Lang.change(() => {
+  Lang.change(Lang.lang_name, () => {
 
     CustomInteractionEvents.init();
     StaticAnimations.init();
@@ -739,9 +739,57 @@ const MobileMeteorsAnimation = Object.create({
 const LangToggle = Object.create({
   init() {
     this.$toggle = document.querySelector('.lang-widget__trigger');
+    this.$elements = document.querySelectorAll('.lang-widget__lang-element');
+    this.$content = document.querySelector('.lang-widget__content');
 
+    this.$toggle.addEventListener('click', () => {
+      if(!this.state) {
+        this.state = true;
+        this.$content.classList.add('active');
+      } else {
+        this.state = false;
+        this.$content.classList.remove('active');
+      }
+    })
 
-  } 
+    this.$elements.forEach($element => {
+      let lang = $element.getAttribute('data-lang');
+      $element.addEventListener('click', () => {
+        Lang.change(lang);
+      })
+    })
+
+  },
+
+  change(lang) {
+    this.$elements.forEach($element => {
+      let lang_attr = $element.getAttribute('data-lang');
+      if(lang==lang_attr) {
+
+        $element.classList.add('disabled')
+
+        let img = $element.querySelector('img');
+
+        this.$toggle.innerHTML = '';
+        this.$toggle.insertAdjacentElement('afterbegin', img.cloneNode());
+
+      } else {
+        $element.classList.remove('disabled')
+      }
+    })
+
+    this.close();
+  },
+
+  open() {
+    this.state = true;
+    this.$content.classList.add('active');
+  },
+
+  close() {
+    this.state = false;
+    this.$content.classList.remove('active');
+  }
 })
 
 const Lang = Object.create({
@@ -755,20 +803,24 @@ const Lang = Object.create({
 
   },
 
-  change(callback) {
+  change(lang, callback) {
+    this.lang_name = lang;
+    localStorage.setItem('savedLang', lang);
 
-    fetch(`https://raw.githubusercontent.com/ruslanmmr/cryptogold/ver2/build/locales/${this.lang_name}.json`)
+    fetch(`https://raw.githubusercontent.com/ruslanmmr/cryptogold/ver2/build/locales/${lang}.json`)
       .then(res => res.json())
       .then(data => {
         
-        document.documentElement.setAttribute('lang', this.lang_name);
+        document.documentElement.setAttribute('lang', lang);
+
+        LangToggle.change(lang);
         
         this.$text_elements.forEach($element => {
           let attr = $element.getAttribute('data-text').split('.');
-          $element.insertAdjacentHTML('afterbegin', data[attr[0]][attr[1]])
+          $element.innerHTML = data[attr[0]][attr[1]];
         })
 
-        localStorage.setItem('savedLang', this.lang_name);
+        window.dispatchEvent(new Event("resize"));
 
         if(callback) callback();
       });

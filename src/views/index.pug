@@ -13,8 +13,15 @@ html
 
   body(style='visibility:hidden;opacity:0;')
     .lang-widget 
-      .lang-widget__trigger
-      
+      a(href="javascript:void(0);").lang-widget__trigger
+
+      .lang-widget__content 
+        a(href="javascript:void(0);" data-lang='ru').lang-widget__lang-element 
+          img(src="./img/icons/ru.svg", alt="icon").icon
+        a(href="javascript:void(0);" data-lang='en').lang-widget__lang-element 
+          img(src="./img/icons/en.svg", alt="icon").icon
+
+
 
     .wrapper
       main.main
