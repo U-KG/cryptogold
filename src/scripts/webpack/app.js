@@ -39,6 +39,8 @@ window.CustomInteractionEvents = Object.create({
     value: 100
   }, 
   init() {
+    console.log('CustomInteractionEvents initialized')
+    
 
     this.events = (event) => {
       let $targets = [];
@@ -104,6 +106,8 @@ window.CustomInteractionEvents = Object.create({
     document.addEventListener('contextmenu', this.events);
   },
   destroy() {
+    console.log('CustomInteractionEvents destroyed')
+
     document.removeEventListener('touchstart',  this.events);
     document.removeEventListener('touchend',    this.events);
     document.removeEventListener('mouseenter',  this.events, true);
