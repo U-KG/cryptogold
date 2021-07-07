@@ -757,7 +757,7 @@ const Lang = Object.create({
 
   change(callback) {
 
-    fetch(`../locales/${this.lang_name}.json`)
+    fetch(`https://raw.githubusercontent.com/ruslanmmr/cryptogold/ver2/build/locales/${this.lang_name}.json`)
       .then(res => res.json())
       .then(data => {
         
@@ -840,7 +840,6 @@ class Meteorite {
         x_end = this.w * -index;
 
     
-
     this.animation = gsap.timeline()
       .to(this.$meteorite, {x: x_end, y: y_end, duration: this.speed, ease:'none'})
       .eventCallback('onComplete', () => {
