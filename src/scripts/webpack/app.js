@@ -225,6 +225,8 @@ window.PageSlider = Object.create({
     this.scrollTo = (index, speed = 1) => {
       if(speed > 0) this.inScroll = true;
       
+      console.log(index)
+
       if(index=='closest') {
         let y = window.pageYOffset,
             h = window.innerHeight;
@@ -262,10 +264,8 @@ window.PageSlider = Object.create({
       let index = this.index ? this.index : 0;
 
       if(event.deltaY > 0) {
-        console.log('scroll bottom')
         if(index < $screens.length - 1) this.scrollTo(index + 1);
       } else if(event.deltaY < 0) {
-        console.log('scroll top')
         if(index > 0) this.scrollTo(index - 1);
       }
     }
@@ -475,6 +475,8 @@ window.onScrollAnimations = Object.create({
       end: () => { return `+=${window.innerHeight * 6} top`; },
       onUpdate: self => {
         this.dynamicAnimations['sky'].progress(self.progress);
+
+        console.log(self.start, self.end, self.progress)
       },
       onRefresh: self => {
         this.dynamicAnimations['sky'].progress(self.progress);
