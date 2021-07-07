@@ -1502,11 +1502,13 @@
       margin-bottom: 35px;
     }
     span {
-      display: block;
-      color: #C747FB;
-      margin-top: 5px;
-      font-size: 44px;
-      font-weight: 700;
+      &:last-child {
+        display: block;
+        color: #C747FB;
+        margin-top: 5px;
+        font-size: 44px;
+        font-weight: 700;
+      }
     }
   }
   @include media-breakpoint-up(xxl) {
@@ -1533,9 +1535,11 @@
     }
     &__top-item {
       span {
-        margin-top: 10px;
-        font-size: 38px;
-        line-height: 1;
+        &:last-child {
+          margin-top: 10px;
+          font-size: 38px;
+          line-height: 1;
+        }
       }
     }
   }
@@ -1573,7 +1577,9 @@
     }
     &__top-item {
       span {
-        font-size: 32px;
+        &:last-child {
+          font-size: 32px;
+        }
       }
     }
     &__pyramid {

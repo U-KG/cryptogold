@@ -1,26 +1,45 @@
-/*========== Variables ==========*/
+//variables
 @import "./components/variables";
-
 //normalize
 @import "../../node_modules/normalize.css/normalize";
 
-/*========== Basic ==========*/
-@import "./components/basic";
+.landing {
+  overflow: hidden;
+  background-color: #000;
+  font-family: 'Futura PT', sans-serif;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1.25;
+  @include media-breakpoint-down(xxl) {
+    font-size: 20px;
+  }
+  @include media-breakpoint-down(xl) {
+    font-size: 16px;
+  }
+  @include media-breakpoint-down(lg) {
+    font-size: 20px;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 18px;
+  }
 
-/*========== Layout ==========*/
-@import "./components/layout";
 
-/*========== Components ==========*/
-@import "./components/components";
 
-/*========== Typography ==========*/
-@import "./components/typography";
+  /*========== Basic ==========*/
+  @import "./components/basic";
 
-/*========== Helpers ==========*/
-@import 'components/helpers';
+  /*========== Layout ==========*/
+  @import "./components/layout";
 
-/*========== Buttons ==========*/
-@import 'components/buttons';
+  /*========== Components ==========*/
+  @import "./components/components";
 
-/*========== Blocks ==========*/
-@import 'components/blocks';
+  /*========== Typography ==========*/
+  @import "./components/typography";
+
+  /*========== Buttons ==========*/
+  @import 'components/buttons';
+
+  /*========== Blocks ==========*/
+  @import 'components/blocks';
+}

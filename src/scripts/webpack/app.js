@@ -211,7 +211,6 @@ window.PageSlider = Object.create({
   },
 
   init() {
-
     document.body.style.overflow = 'hidden';
 
     this.scrollTo = (index, speed = 1) => {
@@ -224,6 +223,7 @@ window.PageSlider = Object.create({
       } 
 
       if(speed > 0) {
+        console.log('scrollTo', $screens[index])
         gsap.to(window, {scrollTo: $screens[index], duration:speed, onComplete: () => {
           setTimeout(() => { this.inScroll = false; }, 100);
         }});
@@ -779,7 +779,7 @@ class Meteorite {
     this.animation = gsap.timeline()
       .to(this.$meteorite, {x: x_end, y: y_end, duration: this.speed, ease:'none'})
       .eventCallback('onComplete', () => {
-        //this.destroy();
+        this.destroy();
       })
   }
 
