@@ -847,7 +847,7 @@ strong, b {
 
 @media (max-width: 767.98px) {
   .screen-1 {
-    padding: 140px 0 80px 0; }
+    padding: 100px 0 80px 0; }
     .screen-1__button {
       text-align: center; }
     .screen-1__content {
@@ -2134,5 +2134,9 @@ strong, b {
     .lang-widget__lang-element.disabled {
       background-color: #cfcfcf;
       pointer-events: none; }
+  @media (max-width: 575.98px) {
+    .lang-widget {
+      top: 16px;
+      right: 16px; } }
 
 /*# sourceMappingURL=maps/common.css.map */

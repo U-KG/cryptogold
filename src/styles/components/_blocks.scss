@@ -252,7 +252,7 @@
     }
   }
   @include media-breakpoint-down(md) {
-    padding: 140px 0 80px 0;
+    padding: 100px 0 80px 0;
     &__button {
       text-align: center;
     }
@@ -1912,5 +1912,10 @@
       background-color: #cfcfcf;
       pointer-events: none;
     }
+  }
+
+  @include media-breakpoint-down(sm) {
+    top: 16px;
+    right: 16px;
   }
 }
