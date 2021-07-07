@@ -476,7 +476,7 @@ window.onScrollAnimations = Object.create({
       onUpdate: self => {
         this.dynamicAnimations['sky'].progress(self.progress);
 
-        console.log(self.start, self.end, self.progress)
+        console.log(self.start, self.end, self.progress);
       },
       onRefresh: self => {
         this.dynamicAnimations['sky'].progress(self.progress);

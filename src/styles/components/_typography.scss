@@ -1,27 +1,3 @@
-html {
-  font-size: 16px;
-}
-
-body {
-  font-family: 'Futura PT', sans-serif;
-  color: #fff;
-  font-size: 24px;
-  line-height: 1.25;
-  text-rendering: geometricPrecision;
-  @include media-breakpoint-down(xxl) {
-    font-size: 20px;
-  }
-  @include media-breakpoint-down(xl) {
-    font-size: 16px;
-  }
-  @include media-breakpoint-down(lg) {
-    font-size: 20px;
-  }
-  @include media-breakpoint-down(sm) {
-    font-size: 18px;
-  }
-}
-
 button, input, textarea {
   text-rendering: inherit;
   font-weight: inherit;

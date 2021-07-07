@@ -306,13 +306,6 @@ template {
   display: none; }
 
 /*========== Basic ==========*/
-body {
-  min-width: 320px;
-  background-color: #000; }
-  @media (min-width: 1280px) {
-    body {
-      overflow: hidden; } }
-
 * {
   box-sizing: border-box;
   -webkit-touch-callout: none;
@@ -374,7 +367,24 @@ a {
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
-  background-color: #000; }
+  background-color: #000;
+  font-family: 'Futura PT', sans-serif;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1.25;
+  text-rendering: geometricPrecision; }
+  @media (max-width: 1599.98px) {
+    .wrapper {
+      font-size: 20px; } }
+  @media (max-width: 1279.98px) {
+    .wrapper {
+      font-size: 16px; } }
+  @media (max-width: 1023.98px) {
+    .wrapper {
+      font-size: 20px; } }
+  @media (max-width: 575.98px) {
+    .wrapper {
+      font-size: 18px; } }
 
 .main {
   flex: 1 1 100%;
@@ -458,28 +468,6 @@ img {
        object-fit: contain; }
 
 /*========== Typography ==========*/
-html {
-  font-size: 16px; }
-
-body {
-  font-family: 'Futura PT', sans-serif;
-  color: #fff;
-  font-size: 24px;
-  line-height: 1.25;
-  text-rendering: geometricPrecision; }
-  @media (max-width: 1599.98px) {
-    body {
-      font-size: 20px; } }
-  @media (max-width: 1279.98px) {
-    body {
-      font-size: 16px; } }
-  @media (max-width: 1023.98px) {
-    body {
-      font-size: 20px; } }
-  @media (max-width: 575.98px) {
-    body {
-      font-size: 18px; } }
-
 button, input, textarea {
   text-rendering: inherit;
   font-weight: inherit; }

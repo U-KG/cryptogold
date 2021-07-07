@@ -4,11 +4,30 @@
   min-height: 100vh;
   overflow: hidden;
   background-color: #000;
+  font-family: 'Futura PT', sans-serif;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1.25;
+  text-rendering: geometricPrecision;
+  @include media-breakpoint-down(xxl) {
+    font-size: 20px;
+  }
+  @include media-breakpoint-down(xl) {
+    font-size: 16px;
+  }
+  @include media-breakpoint-down(lg) {
+    font-size: 20px;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 18px;
+  }
 }
+
 .main {
   flex: 1 1 100%;
   position: relative;
 }
+
 .section {
   position: relative;
 }
