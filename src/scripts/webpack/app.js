@@ -28,16 +28,12 @@ if(history.scrollRestoration) {
 
 SwipeListener($main);
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  
-
-});
-
 window.addEventListener('load', () => {
   document.body.style.overflow = 'auto';
 
+  LangToggle.init();
   Lang.init();
+
   Lang.change(() => {
 
     CustomInteractionEvents.init();
@@ -254,7 +250,6 @@ const PageSlider = Object.create({
       } 
 
       if(speed > 0) {
-        console.log('scrollTo', $screens[index])
         gsap.to(window, {scrollTo: $screens[index], duration:speed, onComplete: () => {
           setTimeout(() => { this.inScroll = false; }, 100);
         }});
@@ -292,7 +287,6 @@ const PageSlider = Object.create({
     }
     
     this.swipeEvent = (event) => {
-      console.log('events')
       if(this.inScroll) return;
 
       let dir = event.detail.directions,
@@ -742,6 +736,14 @@ const MobileMeteorsAnimation = Object.create({
   }
 })
 
+const LangToggle = Object.create({
+  init() {
+    this.$toggle = document.querySelector('.lang-widget__trigger');
+
+
+  } 
+})
+
 const Lang = Object.create({
   init() {
 
@@ -758,19 +760,15 @@ const Lang = Object.create({
     fetch(`../locales/${this.lang_name}.json`)
       .then(res => res.json())
       .then(data => {
-        this.lang_json = data;
-
-        console.log(this.lang_json)
         
         document.documentElement.setAttribute('lang', this.lang_name);
         
         this.$text_elements.forEach($element => {
           let attr = $element.getAttribute('data-text').split('.');
-          
-          $element.insertAdjacentHTML('afterbegin', this.lang_json[attr[0]][attr[1]])
-
+          $element.insertAdjacentHTML('afterbegin', data[attr[0]][attr[1]])
         })
 
+        localStorage.setItem('savedLang', this.lang_name);
 
         if(callback) callback();
       });
