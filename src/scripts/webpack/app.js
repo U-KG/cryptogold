@@ -807,7 +807,7 @@ const Lang = Object.create({
     this.lang_name = lang;
     localStorage.setItem('savedLang', lang);
 
-    fetch(`https://raw.githubusercontent.com/ruslanmmr/cryptogold/ver2/build/locales/${lang}.json`)
+    fetch(`https://raw.githubusercontent.com/U-KG/cryptogold/ruslan/locales/${lang}.json`)
       .then(res => res.json())
       .then(data => {
         
