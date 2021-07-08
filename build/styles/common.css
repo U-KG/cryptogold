@@ -307,11 +307,7 @@ template {
 /*========== Basic ==========*/
 body {
   min-width: 320px;
-  background-color: #000;
-  transition: opacity .5s ease-in-out, visibility .5s ease-in-out; }
-  body.loaded {
-    opacity: 1 !important;
-    visibility: visible !important; }
+  background-color: #000; }
   @media (min-width: 1280px) {
     body {
       overflow: hidden; } }
@@ -370,7 +366,11 @@ a {
 
 /*========== Layout ==========*/
 .wrapper {
-  overflow: hidden; }
+  overflow: hidden;
+  transition: opacity .5s ease-in-out, visibility .5s ease-in-out; }
+  .wrapper.loaded {
+    opacity: 1 !important;
+    visibility: visible !important; }
 
 .main {
   position: relative; }

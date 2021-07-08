@@ -1,5 +1,11 @@
 .wrapper {
   overflow: hidden;
+
+  transition: opacity .5s ease-in-out, visibility .5s ease-in-out;
+  &.loaded {
+    opacity: 1 !important; 
+    visibility: visible !important;
+  }
 }
 .main {
   position: relative;

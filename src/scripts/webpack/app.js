@@ -21,6 +21,8 @@ const brakepoints = {
 }
 const $screens = document.querySelectorAll('.screen');
 const $main = document.querySelector('.main');
+const $wrapper = document.querySelector('.wrapper');
+const $spinner = document.querySelector('.spinner');
 
 if(history.scrollRestoration) {
   history.scrollRestoration = 'manual';
@@ -29,8 +31,6 @@ if(history.scrollRestoration) {
 SwipeListener($main);
 
 window.addEventListener('load', () => {
-  document.body.style.overflow = 'auto';
-
   LangToggle.init();
   Lang.init();
 
@@ -42,8 +42,8 @@ window.addEventListener('load', () => {
     PageSlider.create();
     MobileMeteorsAnimation.create();
 
-    document.body.classList.add('loaded');
-
+    $wrapper.classList.add('loaded');
+    $spinner.classList.add('hidden');
   });
 })
 
@@ -657,6 +657,8 @@ const MobileMeteorsAnimation = Object.create({
   },
 
   init() {
+    document.body.style.overflow = 'auto';
+
     this.createMeteors_1 = () => {
       new Meteorite({type: 1, speed: 2, position: 0.5, delay: 0.5});
       new Meteorite({type: 3, speed: 3.5, position: 0.6, delay: 0.7});

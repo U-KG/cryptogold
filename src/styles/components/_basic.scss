@@ -1,11 +1,6 @@
 body {
   min-width: 320px;
   background-color: #000;
-  transition: opacity .5s ease-in-out, visibility .5s ease-in-out;
-  &.loaded {
-    opacity: 1 !important; 
-    visibility: visible !important;
-  }
   @include media-breakpoint-up(xl) {
     overflow: hidden;
   }
